@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Reveal Release Version",
+  "name": "Show Release Version",
   "version": "1.0",
-  "description": "Shows the first and second arguments of the newRelic.addRelease call on the current page.",
+  "description": "Shows the app name and current version on the current page.",
   "permissions": ["activeTab", "scripting"],
   "action": {
     "default_popup": "popup.html",
