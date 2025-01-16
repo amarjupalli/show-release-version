@@ -34,7 +34,7 @@
 
       const releaseInfo = results[0]?.result;
       document.getElementById("releaseInfo").textContent = releaseInfo
-        ? `${releaseInfo.name}: v${releaseInfo.version}`
+        ? `${releaseInfo.name}: ${releaseInfo.version}`
         : "No release found on this page.";
     } else {
       document.getElementById("releaseInfo").textContent =
