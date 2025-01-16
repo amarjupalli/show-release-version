@@ -1,0 +1,29 @@
+name: Pack show Release Version Extension
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-pack:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Zip the `show-release-version` directory
+      - name: Create ZIP file
+        run: |
+          mkdir -p artifacts
+          zip -r artifacts/show-release-version.zip manifest.json images/ popup.js popup.html
+
+      # Step 3: Upload the ZIP file as a release asset
+      - name: Upload ZIP to release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: artifacts/show-release-version.zip
+          asset_name: show-release-version.zip
+          asset_content_type: application/zip
