@@ -33,9 +33,10 @@
       });
 
       const releaseInfo = results[0]?.result;
-      document.getElementById("releaseInfo").textContent = releaseInfo
-        ? `${releaseInfo.name}: ${releaseInfo.version}`
-        : "No release found on this page.";
+      document.getElementById("releaseInfo").innerHTML = releaseInfo
+        ? `<div><span class='label'>App Name:</span> <span class='value'>${releaseInfo.name}</span></div>
+           <div><span class='label'>App Version:</span> <span class='value'>${releaseInfo.version}</span></div>`
+        : "<div>No release found on this page.</div>";
     } else {
       document.getElementById("releaseInfo").textContent =
         "Unable to access the current tab.";

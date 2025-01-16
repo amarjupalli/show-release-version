@@ -6,9 +6,10 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      width: 300px;
+      width: max-content;
+      max-width: 300px;
       margin: 0;
-      padding: 20px;
+      padding: 10px;
       background-color: #f9f9f9;
     }
 
@@ -16,9 +17,18 @@
       background-color: #fff;
       border: 1px solid #ddd;
       padding: 10px;
-      margin-top: 5px;
       font-size: 16px;
       color: #333;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #releaseInfo .label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    #releaseInfo .value {
+      color: #0078d7;
     }
   </style>
 </head>
