@@ -1,0 +1,23 @@
+name: Pack extension on release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  zip_files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Create zip file and attach to release
+        run: |
+          mkdir -p artifacts
+          zip -r artifacts/show-release-version.zip manifest.json images/ popup.js popup.html
+          gh release upload ${{github.event.release.tag_name}} artifacts/show-release-version.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
